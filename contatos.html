@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contato - Concessionária</title>
+<style>
+  /* Reset básico */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+  }
+
+  header {
+    background-color: #222;
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+
+  header h1 {
+    font-size: 2em;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+
+  h2 { 
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    color: #222;
+  }
+
+  /* Formulário */
+  form {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin-bottom: 40px;
+  }
+
+  form input, form textarea { /* Estilo dos campos de entrada */
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+  }
+ 
+  form button { /* Estilo do botão */
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: transform 0.2s, background-color 0.2s;
+  }
+
+  form button:hover { /* Efeito hover no botão */
+    background-color: #218838;
+    transform: scale(1.05);
+  }
+
+  /* Redes sociais */
+  .redes-sociais {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 40px;
+  }
+
+  .redes-sociais a { /* Estilo dos links das redes sociais */
+    display: inline-block;
+    padding: 12px 20px;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.2s, opacity 0.2s;
+  }
+
+  .redes-sociais a:hover { /* Efeito hover nas redes sociais */
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+
+  .instagram { background: #C13584; }
+  .facebook { background: #1877F2; }
+  .twitter { background: #1DA1F2; }
+  .linkedin { background: #0077B5; }
+
+  /* Informações de contato */
+  .info {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .info p {
+    margin: 10px 0;
+    font-size: 1.1em;
+  }
+
+  /* Responsivo */
+  @media(max-width: 600px){
+    .redes-sociais {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  #voltar {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 10px 15px;
+    background-color: #000000;
+    color: rgb(229, 255, 0);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+  }
+    #voltar:hover {
+        background-color: #0056b3;
+        transform: scale(1.05);
+        font-style: italic;
+        ;
+    }
+
+</style>
+</head>
+<body>
+<button id="voltar">Home</button>
+<header>
+  <h1>Contato - Concessionária</h1>
+</header>
+
+<div class="container">
+
+  <h2>Envie uma mensagem</h2>
+  <form id="contatoForm"> <!-- Formulário de contato -->
+    <input type="text" placeholder="Nome" required>
+    <input type="email" placeholder="Email" required>
+    <textarea placeholder="Mensagem" rows="5" required></textarea>
+    <button type="submit">Enviar</button>
+  </form>
+
+  <div class="redes-sociais">
+    <a href="http://www.instagram.com/Concessionaria" target="_blank" class="instagram">Instagram</a>
+    <a href="http://www.facebook.com/Concessionaria" target="_blank" class="facebook">Facebook</a>
+    <a href="http://www.twitter.com/Concessionaria" target="_blank" class="twitter">Twitter</a>
+    <a href="http://www.linkedin.com/Concessionaria" target="_blank" class="linkedin">LinkedIn</a>
+  </div>
+
+  <div class="info"> <!-- Informações de contato -->
+    <p>📍 Rua Exemplo, 123 - Cidade, Estado</p>
+    <p>📞 (00) 1234-5678</p>
+    <p>⏰ Segunda a Sexta: 08:00 - 18:00</p>
+  </div>
+
+</div>
+
+<script>
+
+document.getElementById("contatoForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    alert("Mensagem enviada com sucesso!");
+    this.reset();
+});
+
+document.getElementById("voltar").addEventListener("click", function() {
+ window.location.href = "../pagina-html/index.html";
+}); // Redireciona para a página inicial ao clicar no botão
+
+</script>
+
+</body>
+</html>

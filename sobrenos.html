@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section id="sobre" class="sobre">
+  <div class="container">
+    <h2>Sobre a Concessionária</h2>
+    <p>Somos uma concessionária com anos de experiência no mercado, oferecendo os melhores carros, atendimento de qualidade e condições especiais para nossos clientes. Nosso objetivo é proporcionar a melhor experiência de compra e confiança na hora de escolher seu veículo.</p>
+
+    <div class="valores">
+      <div class="valor">
+        <h3>Qualidade</h3>
+        <p>Carros revisados e com garantia de procedência.</p>
+      </div>
+      <div class="valor">
+        <h3>Atendimento</h3>
+        <p>Equipe especializada para orientar e ajudar na escolha.</p>
+      </div>
+      <div class="valor">
+        <h3>Confiança</h3>
+        <p>Transparência e segurança em todas as negociações.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<button id="voltar">Home</button>
+
+<style>
+.sobre {
+  background-color: #f9f9f9;
+  padding: 60px 20px;
+}
+
+.sobre .container {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.sobre h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+.sobre p {
+  font-size: 1.1em;
+  margin-bottom: 40px;
+  color: #555;
+}
+
+.valores {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.valor {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 250px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.valor:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.valor h3 {
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.valor p {
+  color: #555;
+  font-size: 1em;
+}
+
+/* Responsivo */
+@media(max-width: 768px){
+  .valores {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+button {
+    margin-top: 30px;
+    padding: 10px 20px;
+    background-color: #000000;
+    color: rgb(234, 255, 0);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+</style>
+<script>
+document.getElementById("voltar").addEventListener("click", function() {
+    window.location.href = "../pagina-html/index.html";
+}); // Redireciona para a página inicial ao clicar no botão
+</script>
+</body>
+</html>
