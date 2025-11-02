@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carros Disponíveis</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 { 
+    text-align: center;
+    color: #333;
+}
+
+.carros { /* estilo do container dos carros */
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.carro { /* estilo do container do carro */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.carro img { /* estilo da imagem */
+    width: 300px;
+    height: 200px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.carro img:hover { /* efeito hover na imagem */
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0,0,0,0.4);
+}
+
+.carro button { /* estilo do botão */
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.carro button:hover { /* hover effect */
+    background-color: #218838;
+    transform: scale(1.07);
+    box-shadow: 0px 0px 12px rgba(0,0,0,0.3);
+}
+
+.button-animate { /* animação ao clicar no botão */
+    animation: addToCartAnim 0.3s ease;
+}
+
+@keyframes addToCartAnim { /* animação ao adicionar ao carrinho */
+    0% { transform: scale(1); background-color: #28a745; }
+    50% { transform: scale(1.2); background-color: #218838; }
+    100% { transform: scale(1); background-color: #28a745; }
+}
+
+
+#home { /* estilo do botão HOME */
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 10px 15px;
+    background-color: #000000;
+    color: rgb(221, 255, 0);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+#home:hover {  /* hover effect */
+    background-color: #000000;
+    transform: scale(1.07);
+    box-shadow: 0px 0px 12px rgba(0,0,0,0.3);
+}
+
+
+#cartIcon { /* ícone do carrinho */
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    font-size: 35px;
+    cursor: pointer;
+}
+
+#cartPanel { /* painel do carrinho */
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 350px;
+    height: 100vh;
+    background: white;
+    box-shadow: -3px 0 10px rgba(0,0,0,0.3);
+    transition: right 0.4s ease;
+    padding: 20px;
+    overflow-y: auto;
+    z-index: 100;
+}
+
+#cartPanel.open { /* abre o painel */
+    right: 0;
+}
+
+#cartPanel h2 { /* cabeçalho do carrinho */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#cartPanel .closeBtn { /* botão fechar */
+    cursor: pointer;
+    font-size: 24px;
+    color: #333;
+}
+
+#cartItems li { /* itens do carrinho */
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    border-bottom: 1px solid #eee;
+    padding: 5px 0;
+}
+
+#cartItems li img { /* imagem do item */
+    width: 60px;
+    height: 40px;
+    margin-right: 10px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.removeBtn { /* botão remover item */
+    margin-left: auto;
+    cursor: pointer;
+    color: red;
+    font-weight: bold;
+}
+</style>
+</head>
+<body>
+<button id="home">HOME</button>
+<h1>Carros disponíveis</h1>
+
+<div class="carros"> <!-- container dos carros -->
+    <div class="carro"> <!-- carro individual -->
+        <img src="image/G63.jpg" alt="Mercedes G63"> 
+        <button id="g63">Selecionar Mercedes G63</button>
+    </div>
+    <div class="carro"> 
+        <img src="image/Audi.jpg" alt="Audi Q7">
+        <button id="q7">Selecionar Audi Q7</button>
+    </div>
+    <div class="carro">
+        <img src="image/BMW.jpg" alt="BMW">
+        <button id="bmw">Selecionar BMW</button>
+    </div>
+    <div class="carro">
+        <img src="image/x1.jpg" alt="BMW X1">
+        <button id="x1">Selecionar BMW X1</button>
+    </div>
+    <div class="carro">
+        <img src="image/jetta.jpg" alt="Jetta">
+        <button id="jetta">Selecionar Jetta</button>
+    </div>
+    <div class="carro">
+        <img src="image/huracan.jpg" alt="Huracan">
+        <button id="huracan">Selecionar Huracan</button>
+    </div>
+    <div class="carro">
+        <img src="image/porsche 911.jpg" alt="Porsche 911" >
+        <button id="p911">Selecionar Porsche 911</button>
+    </div>
+    <div class="carro">
+        <img src="image/ferrari.jpg" alt="Ferrari">
+        <button id="ferrari">Selecionar Ferrari</button>
+    </div>
+</div>
+
+<!-- ICON CARRINHO -->
+<div id="cartIcon">🛒</div>
+
+<!-- PAINEL DO CARRINHO -->
+<div id="cartPanel">
+    <h2>Seu carrinho <span class="closeBtn">&times;</span></h2>
+    <ul id="cartItems"></ul>
+</div>
+
+<script>
+document.getElementById("home").addEventListener("click", function() {
+    window.location.href = "../Pagina%20inicial/index.html";
+}); // botão home
+
+// abre/fecha painel
+document.getElementById("cartIcon").addEventListener("click", () => {
+    document.getElementById("cartPanel").classList.toggle("open");
+});
+document.querySelector(".closeBtn").addEventListener("click", () => {
+    document.getElementById("cartPanel").classList.remove("open");
+});
+
+// Função para adicionar item no carrinho
+function addToCart(name, imgSrc) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart.push({name, imgSrc});
+    localStorage.setItem("cart", JSON.stringify(cart));
+    renderCart();
+}
+
+// Renderiza o carrinho
+function renderCart() {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const cartItems = document.getElementById("cartItems");
+    cartItems.innerHTML = "";
+    cart.forEach((item, index) => {
+        const li = document.createElement("li");
+        li.innerHTML = `
+            <img src="${item.imgSrc}" alt="${item.name}">
+            ${item.name}
+            <span class="removeBtn" data-index="${index}">&times;</span>
+        `;
+        cartItems.appendChild(li);
+    }); // fim do loop
+
+    // adiciona funcionalidade de remover
+    document.querySelectorAll(".removeBtn").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+            const idx = e.target.dataset.index;
+            cart.splice(idx,1);
+            localStorage.setItem("cart", JSON.stringify(cart));
+            renderCart();
+        });
+    });
+}
+
+renderCart();
+
+// Ligar botões aos carros + animação
+const carros = [
+    {id: "g63", name:"Mercedes G63", img:"image/G63.jpg"},
+    {id: "q7", name:"Audi Q7", img:"image/Audi.jpg"},
+    {id: "bmw", name:"BMW", img:"image/BMW.jpg"},
+    {id: "x1", name:"BMW X1", img:"image/x1.jpg"},
+    {id: "jetta", name:"Jetta", img:"image/jetta.jpg"},
+    {id: "huracan", name:"Huracan", img:"image/huracan.jpg"},
+    {id: "p911", name:"Porsche 911", img:"image/porsche 911.jpg"},
+    {id: "ferrari", name:"Ferrari", img:"image/ferrari.jpg"}
+];
+
+carros.forEach(car => {
+    const btn = document.getElementById(car.id);
+    btn.addEventListener("click", function(){
+        addToCart(car.name, car.img);
+
+        // animação botão
+        this.classList.add("button-animate");
+        setTimeout(() => this.classList.remove("button-animate"), 300);
+    });
+});
+</script>
+</body>
+</html>

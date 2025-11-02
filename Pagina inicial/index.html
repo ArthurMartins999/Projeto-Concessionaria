@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Concessionária</title>
+<style>
+  body { 
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Cabeçalho */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #222;
+    color: rgb(255, 255, 255);
+  }
+  header nav a { /* Links do cabeçalho */
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+  header nav a:hover { /* Efeito hover nos links do cabeçalho */
+    color: #ffcc00;
+  }
+
+  /* Banner */
+  .hero { /* Seção do banner */
+    background: url('image/banner-car.jpg') center/cover no-repeat;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: rgb(0, 0, 0);
+    text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.7);
+    text-align: center;
+  }
+  .hero h1 { /* Título do banner */
+    font-size: 3em;
+    margin-bottom: 20px;
+  }
+  .hero button { /* Botão do banner */
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    background-color: #ffcc00;
+    color: #222;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .hero button:hover { /* Efeito hover no botão do banner */
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  }
+
+  /* Destaque carros */
+  .destaque {
+    padding: 50px 20px;
+    text-align: center;
+  }
+  .destaque h2 { /* Título da seção de destaque */
+    margin-bottom: 30px;
+    font-size: 2em;
+    color: black;
+  }
+  .carros { /* Container dos carros */
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+  .carro { /* Cartões dos carros */
+    width: 250px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .carro img { /* Imagens dos carros */
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+  }
+  .carro h3 { /* Título dos carros */
+    margin: 10px 0;
+  }
+  .carro button { /* Botões dos carros */
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    background-color: #ffcc00;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .carro button:hover { /* Efeito hover nos botões dos carros */
+    transform: scale(1.05);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+  }
+
+  
+  footer { /* Rodapé */
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <h2>Concessionária Your Dreams</h2>
+  </div>
+  <nav>
+    <a id="home" href="#">Home</a>
+    <a id="carro" href="#">Carros</a>
+    <a id="sobre" href="#">Sobre</a>
+    <a id="contato" href="#">Contato</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Encontre o carro dos seus sonhos</h1>
+    <button>Ver Carros</button>
+</section>
+
+<section class="destaque">
+  <h2>Destaques</h2>
+  <div class="carros">
+    <div class="carro">
+      <img src="image/g63.jpg" alt="Mercedes G63">
+      <h3>Mercedes G63</h3>
+      <button>Selecionar</button>
+    </div>
+    <div class="carro">
+      <img src="image/audiq7.jpg" alt="Audi Q7">
+      <h3>Audi Q7</h3>
+      <button>Selecionar</button>
+    </div>
+    <div class="carro">
+      <img src="image/bmw.jpg" alt="BMW">
+      <h3>BMW X5</h3>
+      <button>Selecionar</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 Minha Concessionária | Endereço, Telefone e Redes Sociais
+</footer> 
+
+</body>
+<script>
+document.querySelector(".hero button").addEventListener("click", function() {
+    window.location.href = "../Pagina%20de%20estoque/carro.html";
+}); // Redireciona para a página de estoque ao clicar no botão
+
+document.querySelectorAll(".carro button").forEach(function(button) {
+    button.addEventListener("click", function() {
+        window.location.href = "../Pagina%20de%20estoque/carro.html";
+    });
+}); // Redireciona para a página de estoque ao clicar em qualquer botão de carro
+
+document.getElementById("carro").addEventListener("click", function() {
+    window.location.href = "../Pagina%20de%20estoque/carro.html";
+}); // Redireciona para a página de estoque ao clicar no link "Carros"
+
+document.getElementById("sobre").addEventListener("click", function() {
+    window.location.href = "../Pagina%20Sobre/sobrenos.html";
+}); // Redireciona para a seção "Sobre Nós" ao clicar no link "Sobre"
+
+document.getElementById("contato").addEventListener("click", function() {
+    window.location.href = "../Pagina%20de%20Contato/contatos.html";
+}); // Redireciona para a seção "Contato" ao clicar no link "Contato"
+
+</script>
+</html>
